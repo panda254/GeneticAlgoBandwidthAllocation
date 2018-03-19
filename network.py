@@ -15,6 +15,10 @@ import genetic
 #             s1------s5-------s6------s4
 #
 
+a = 1
+b = 1
+c = 1
+
 def is_valid_Path(path,network):
 
     for x in range(0,len(path)-1):
@@ -194,7 +198,7 @@ class Network:
     def test_network(self):
         network = {}
         network['switches'] = []
-        network['switches']=['s1','s2','s3','s4','s5','s6','s7','s8','s9']
+        network['switches']=['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14']
         self.add_link(network,'n1','s1')
         self.add_link(network,'s1','s2')
         self.add_link(network,'s2','s3')
@@ -216,6 +220,13 @@ class Network:
         self.add_link(network, 's9', 's2')
         self.add_link(network, 's9', 's1')
 
+        self.add_link(network, 'n1', 's10')
+        self.add_link(network, 's10','s11')
+        self.add_link(network, 's11', 'n2')
+
+        self.add_link(network, 's14', 's13')
+        self.add_link(network, 's13', 's12')
+
 
         bandwidth = {}
 
@@ -228,8 +239,15 @@ class Network:
         bandwidth['s7'] = 4000
         bandwidth['s8'] = 4000
         bandwidth['s9'] = 5000
+        bandwidth['s10'] = 6000
+        bandwidth['s11'] = 6000
+        bandwidth['s12'] = 6000
+        bandwidth['s13'] = 6000
+        bandwidth['s14'] = 6000
 
         paths = []
+        path = ['n1', 's2', 's1','n2']
+        paths.append(path)
         path = ['n1', 's2', 's1', 's3', 's4', 'n2']
         paths.append(path)
         path = ['n1', 's1', 's2', 's3', 's4', 's5', 'n2']
@@ -261,7 +279,7 @@ class Network:
         # strategy = 1 => mutation
         # strategy = 2 => crossover
 
-        maxGen = 80
+        maxGen = 100
 
         gen = 1
 
