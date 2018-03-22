@@ -162,8 +162,8 @@ class Chromosome:
         return True
 
 
-a=0.5
-b=0.5
+a=1
+b=0
 req_bw = 4000
 req_delay = 4
 def calculateFitness(cx):
@@ -386,7 +386,7 @@ class Network:
         # strategy = 1 => mutation
         # strategy = 2 => crossover
 
-        maxGen = 300
+        maxGen = 30
 
         gen = 1
 
